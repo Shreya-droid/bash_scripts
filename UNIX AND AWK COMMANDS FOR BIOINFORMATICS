@@ -1,0 +1,12 @@
+1) To get the length of each gene in fasta file:
+awk '/^/{if (l!="") print l; print; l=0; next}{l+=length($0)}END{print l}' final_capnocytophaga.fasta
+
+2) To find the occurences of some particular character in fasta file:
+grep -o "-" final_capnocytophaga.fasta|wc -l
+
+3) To rename a blast filename { -n: print renaming files without actually renaming them }
+rename -n 's/protein$//&s/_protein//' *
+rename 's/protein$//&s/_protein//' *
+
+4) To rename the last '_' from the filename
+rename -n 's/_$//' *
